@@ -60,7 +60,7 @@ class AdminRepo extends GetxController {
   // Fetch User Name
   Future<AdminModel> getAdminName(String email) async {
     final snapshot = await _db.collection("Admins").where("Email", isEqualTo: email).get();
-    final adminData = snapshot.docs.map((amin) => AdminModel.fromDatabase(admin)).single;
+    final adminData = snapshot.docs.map((admin) => AdminModel.fromDatabase(admin)).single;
     return adminData;
   }
 
