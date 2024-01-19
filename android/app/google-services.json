@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "569404053614",
+    "project_id": "hawaii-99a32",
+    "storage_bucket": "hawaii-99a32.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569404053614:android:2c8c57772d4ea9ea446e7f",
+        "android_client_info": {
+          "package_name": "com.example.hawai_jubu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApkKbTwZ0SpC8Se-MEH_0GU6bFLkkdUW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569404053614:android:43be8524406fae9d446e7f",
+        "android_client_info": {
+          "package_name": "zucode.io.hawaii"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApkKbTwZ0SpC8Se-MEH_0GU6bFLkkdUW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
