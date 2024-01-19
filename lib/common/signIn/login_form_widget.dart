@@ -11,9 +11,6 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final loginController = Get.put(SignInController());
-    final adminRepo = Get.put(AdminRepo());
-
-
     return Form(
       key: _formKey,
       child: Container(
@@ -94,6 +91,7 @@ class LoginForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
+                  print("LOGIN PRESSED2");
                   if (_formKey.currentState!.validate()) {
                     loginController.login();
                   }
