@@ -27,7 +27,7 @@ class SignUpController extends GetxController {
   }
 
   void registerUser(String email, String password) {
-    AuthRepo.instance.createUserEmailPass(email, password);
+    Get.find<AuthRepo>().createUserEmailPass(email, password);
   }
 
   Future<void> createUser(UserModel userData) async {

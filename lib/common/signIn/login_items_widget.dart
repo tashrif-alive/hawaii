@@ -49,7 +49,7 @@ class LoginItemWidget extends StatelessWidget {
               ),
               child: Transform.scale(
                 scale: 1.65,
-                child: Image.asset(
+                child: true ? SizedBox() : Image.asset(
                   "assets/images/icon/google_logo.png",
                   fit: BoxFit.fitHeight,
                 ),

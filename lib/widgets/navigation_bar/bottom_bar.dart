@@ -14,6 +14,8 @@ class _BottomBarState extends State<BottomBar> {
   int selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     MyHomePage(),
+    Text("TOP UP"),
+    Text("PROFILE"),
     // const ProfileScreen()
   ];
 

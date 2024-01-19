@@ -8,7 +8,7 @@ import '../exceptions/signup_email_pass_failure.dart';
 
 
 class AuthRepo extends GetxController {
-  static AuthRepo get instance => Get.find();
+  // static AuthRepo get instance => Get.find();
 
   // Variable
   final _auth = FirebaseAuth.instance;
