@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hawaii/controllers/signin_controller.dart';
+import 'package:hawaii/repositories/admin_repo/admin_repo.dart';
 
 import '../../controllers/singup_controller.dart';
 
@@ -10,6 +11,8 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final loginController = Get.put(SignInController());
+    final adminRepo = Get.put(AdminRepo());
+
 
     return Form(
       key: _formKey,

@@ -56,8 +56,9 @@ class AdminRepo extends GetxController {
   // Check if the user is an admin
   Future<bool> isAdmin(String email) async {
     try {
-      final adminSnapshot = await _db.collection('admins').doc(email).get(); // Updated collection name to "admins"
-      return adminSnapshot.exists;
+      print(email);
+      final adminSnapshot = await _db.collection('admins').where('email', isEqualTo: email).get(); // Updated collection name to "admins"
+      return adminSnapshot.docs.isNotEmpty;
     } catch (e) {
       print('Error checking admin status: $e');
       return false;
