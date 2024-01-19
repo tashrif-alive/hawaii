@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
           SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children:[
                 FormHeaderWidget(
                   image: 'assets/images/banners/login_animation.png',
                   title: "Hello!",

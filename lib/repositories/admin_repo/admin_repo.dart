@@ -1,22 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hawaii/models/admin_model.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/snackbar/snackbar.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-
+import '../../models/admin_model.dart';
 
 class AdminRepo extends GetxController {
   static AdminRepo get instance => Get.find();
 
   final _db = FirebaseFirestore.instance;
 
-  createAdminDoc(AdminModel adminData) async {
+  // Create Admin Document
+  Future<void> createAdminDoc(AdminModel adminData) async {
     await _db
-        .collection("admins")
+        .collection("admins") // Updated collection name to "admins"
         .doc(adminData.id)
         .set(adminData.toJson())
-        .whenComplete(
-          () => Get.snackbar(
+        .then((_) {
+      Get.snackbar(
         "Success:",
         "Your Account Has Been Created",
         icon: const Icon(Icons.check_circle, color: Colors.white),
@@ -29,9 +32,9 @@ class AdminRepo extends GetxController {
         isDismissible: true,
         dismissDirection: DismissDirection.horizontal,
         forwardAnimationCurve: Curves.easeOutBack,
-      ),
-    )
-        .catchError((error, stackTrace) {
+      );
+    })
+        .catchError((error) {
       Get.snackbar(
         "Error:",
         "Something Went Wrong! Try Again",
@@ -50,29 +53,40 @@ class AdminRepo extends GetxController {
     });
   }
 
+  // Check if the user is an admin
+  Future<bool> isAdmin(String email) async {
+    try {
+      final adminSnapshot = await _db.collection('admins').doc(email).get(); // Updated collection name to "admins"
+      return adminSnapshot.exists;
+    } catch (e) {
+      print('Error checking admin status: $e');
+      return false;
+    }
+  }
+
   // Fetch User Details
   Future<AdminModel> getAdminDetails(String email) async {
-    final snapshot = await _db.collection("Admins").where("Email", isEqualTo: email).get();
+    final snapshot = await _db.collection("admins").where("Email", isEqualTo: email).get(); // Updated collection name to "admins"
     final adminData = snapshot.docs.map((admin) => AdminModel.fromDatabase(admin)).single;
     return adminData;
   }
 
   // Fetch User Name
   Future<AdminModel> getAdminName(String email) async {
-    final snapshot = await _db.collection("Admins").where("Email", isEqualTo: email).get();
+    final snapshot = await _db.collection("admins").where("Email", isEqualTo: email).get(); // Updated collection name to "admins"
     final adminData = snapshot.docs.map((admin) => AdminModel.fromDatabase(admin)).single;
     return adminData;
   }
 
   // Fetch All Users
   Future<List<AdminModel>> getAllUsers() async {
-    final snapshot = await _db.collection("Admins").get();
+    final snapshot = await _db.collection("admins").get(); // Updated collection name to "admins"
     final adminData = snapshot.docs.map((admin) => AdminModel.fromDatabase(admin)).toList();
     return adminData;
   }
 
   // Update User Records
   Future<void> updateAdminRecord(AdminModel admin) async {
-    await _db.collection("admins").doc(admin.id).update(admin.toJson());
+    await _db.collection("admins").doc(admin.id).update(admin.toJson()); // Updated collection name to "admins"
   }
 }

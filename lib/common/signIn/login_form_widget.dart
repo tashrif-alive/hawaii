@@ -1,23 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:hawaii/common/forget_password/buildshowmodalbottomsheet.dart';
 import 'package:hawaii/controllers/signin_controller.dart';
 
+import '../../controllers/singup_controller.dart';
 
 class LoginForm extends StatelessWidget {
-  LoginForm({
-    Key? key,
-  }) : super(key: key);
-
-  RxBool isVisible = true.obs;
   static final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    final loginController = Get.put(LoginController());
+    final loginController = Get.put(SignInController());
+
     return Form(
       key: _formKey,
       child: Container(
@@ -27,93 +20,87 @@ class LoginForm extends StatelessWidget {
           children: [
             TextFormField(
               keyboardType: TextInputType.emailAddress,
-              controller: loginController.email,
+              controller: SignUpController.instance.email,
               validator: (value) {
-                // Is Empty Validation
                 if (value == null || value.isEmpty) {
                   return 'Email is Required!';
                 }
-                // Email Field Validation
                 if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
                   return "Please Enter a Valid Email";
                 }
-                // Return Null If Valid
                 return null;
               },
               decoration: InputDecoration(
-                  prefixIcon: const Icon(
-                    Icons.person_outline_outlined,
-                    color: Colors.black54,
-                  ),
-                  hintText: "Email",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide.none),
-                  fillColor: Colors.white60,
-                  filled: true),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Obx(
-              () => TextFormField(
-                obscureText: isVisible.value,
-                controller: loginController.password,
-                validator: (value) {
-                  // Is Empty Validation
-                  if (value == null || value.isEmpty) {
-                    return 'Password is Required!';
-                  }
-                  // Return Null If Valid
-                  return null;
-                },
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.fingerprint),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide.none),
-                  fillColor: Colors.white60,
-                  filled: true,
-                  suffixIcon: IconButton(
-                    onPressed: () => passVisibility(),
-                    icon: isVisible.value
-                        ? Icon(Icons.visibility)
-                        : Icon(Icons.visibility_off),
-                  ),
+                prefixIcon: const Icon(
+                  Icons.person_outline_outlined,
+                  color: Colors.black54,
                 ),
+                hintText: "Email",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide.none,
+                ),
+                fillColor: Colors.white60,
+                filled: true,
               ),
             ),
-            SizedBox(),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  ForgetPasswordScreen.buildShowModalBottomSheet(context);
-                },
-                child: Text("Forget Password?"),
+            TextFormField(
+              keyboardType: TextInputType.visiblePassword,
+              controller: SignUpController.instance.password,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Password is Required!';
+                }
+                // You can add more conditions for password validation if needed
+                return null;
+              },
+              decoration: InputDecoration(
+                prefixIcon: const Icon(
+                  Icons.password,
+                  color: Colors.black54,
+                ),
+                hintText: "Password",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide.none,
+                ),
+                fillColor: Colors.white60,
+                filled: true,
               ),
             ),
-            SizedBox(),
+            // ... (other form fields)
+
+            Row(
+              children: [
+                Obx(() => Switch(
+                  value: loginController.isAdmin.value,
+                  onChanged: (value) {
+                    loginController.setAdminStatus(value);
+                  },
+                )),
+                Text(
+                  "Login as Admin",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ],
+            ),
+
+            // ... (other form fields)
+
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    LoginController.instance.loginUser(
-                        loginController.email.text.trim(),
-                        loginController.password.text.trim());
+                    loginController.login();
                   }
                 },
-                child: Text("Login"),
+                child: Text('Login'),
               ),
             ),
           ],
         ),
       ),
     );
-  }
-
-  passVisibility() {
-    isVisible.value = !isVisible.value;
   }
 }
