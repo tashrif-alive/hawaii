@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hawaii/widgets/form/bottom_form_widget.dart';
 import 'package:hawaii/widgets/navigation_bar/bottom_bar.dart';
+import '../../widgets/form/form_header _widget.dart';
 import 'login_form_widget.dart';
-import 'login_header_widget.dart';
 import 'login_items_widget.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -11,23 +10,18 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown.shade50,
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.all(15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: const LoginHeaderWidgets(),
-              ),
-              LoginForm(),
-              LoginItemWidget(),
-              SizedBox(height: 20),
-              BottomWidget(),
-            ],
-          ),
+        child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const FormHeaderWidget(
+              image: 'assets/images/banners/login_banner.png',
+              title: 'Welcome Back',
+              subtitle: "Explore your trip easily!",
+            ),
+            LoginForm(),
+            LoginItemWidget(),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -40,13 +34,15 @@ class LoginScreen extends StatelessWidget {
           );
         },
         mini: true,
-        backgroundColor: Colors.brown.withOpacity(0.1),
+        backgroundColor: Colors.grey.shade100,
+        elevation: 0.0,
         child: const Icon(
-          Icons.close,
+          Icons.arrow_back_ios_new_outlined,
+          color: Colors.black,
           size: 20,
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
     );
   }
 }

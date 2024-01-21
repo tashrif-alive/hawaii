@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'Hawaii: Ticket Reservation App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.black,
+        primarySwatch: Colors.blue,
       ),
       home: SignUpScreen(),
     );

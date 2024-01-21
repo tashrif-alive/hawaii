@@ -18,86 +18,99 @@ class SignUpFormSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextFormField(
-              controller: registerController.fullName,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Full Name Is Required!';
-                }
-                return null;
-              },
-              decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.person),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide.none),
-                  fillColor: Colors.white60,
-                  filled: true,
-                  hintText: "Full Name"),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: TextFormField(
+                controller: registerController.fullName,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Full Name Is Required!';
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.person),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide.none),
+                    fillColor: Colors.grey.shade50,
+                    filled: true,
+                    hintText: "Full Name"),
+              ),
             ),
-            TextFormField(
-              controller: registerController.email,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Email Is Required!';
-                }
-                return null;
-              },
-              decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.email),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide.none),
-                  fillColor: Colors.white60,
-                  filled: true,
-                  hintText: "Email"),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: TextFormField(
+                controller: registerController.email,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Email Is Required!';
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.email),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide.none),
+                    fillColor: Colors.grey.shade50,
+                    filled: true,
+                    hintText: "Email"),
+              ),
             ),
-            TextFormField(
-              controller: registerController.phoneNum,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Phone Number Is Required!';
-                }
-                return null;
-              },
-              decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.phone),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide.none),
-                  fillColor: Colors.white60,
-                  filled: true,
-                  hintText: "Phone Number"),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: TextFormField(
+                controller: registerController.phoneNum,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Phone Number Is Required!';
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.phone),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide.none),
+                    fillColor: Colors.grey.shade50,
+                    filled: true,
+                    hintText: "Phone Number"),
+              ),
             ),
-            TextFormField(
-              controller: registerController.password,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Password Is Required!';
-                }
-                return null;
-              },
-              decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.password),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide.none),
-                  fillColor: Colors.white60,
-                  filled: true,
-                  hintText: "Password"),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: TextFormField(
+                controller: registerController.password,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Password Is Required!';
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide.none),
+                    fillColor: Colors.grey.shade50,
+                    filled: true,
+                    hintText: "Password"),
+              ),
             ),
             // ... (other form fields)
 
             Row(
               children: [
-                Obx(() => Switch(
+                Obx(() => Checkbox(
                       value: registerController.isAdmin.value,
                       onChanged: (value) {
-                        registerController.setAdminStatus(value);
+                        registerController.setAdminStatus(value!);
                       },
+                      checkColor: Colors.white,
                     )),
                 Text(
-                  "Register as Admin",
+                  "Is Admin?",
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
@@ -105,21 +118,27 @@ class SignUpFormSection extends StatelessWidget {
 
             // ... (other form fields)
 
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    final userData = UserModel(
-                      fullName: registerController.fullName.text.trim(),
-                      phone: registerController.phoneNum.text.trim(),
-                      email: registerController.email.text.trim(),
-                      password: registerController.password.text.trim(),
-                    );
-                    registerController.signUp();
-                  }
-                },
-                child: Text('Register'),
+            Padding(
+              padding: const EdgeInsets.all(6.0),
+              child: SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      final userData = UserModel(
+                        fullName: registerController.fullName.text.trim(),
+                        phone: registerController.phoneNum.text.trim(),
+                        email: registerController.email.text.trim(),
+                        password: registerController.password.text.trim(),
+                      );
+                      registerController.signUp();
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                  ),
+                  child: Text('Register'),
+                ),
               ),
             ),
           ],

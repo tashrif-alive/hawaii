@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 
 class FormHeaderWidget extends StatelessWidget {
   const FormHeaderWidget({
     required this.image,
-     this.height,
+    this.height,
     required this.title,
     required this.subtitle,
     Key? key,
@@ -22,16 +22,17 @@ class FormHeaderWidget extends StatelessWidget {
           alignment: Alignment.center,
           child: Image.asset(
             image,
-            height: MediaQuery.of(context).size.height*0.26,
+            height: MediaQuery.of(context).size.height * 0.25,
           ),
         ),
-        Text("gf"
-          // title,
-          // style: StylesText.headLineStyle1,
+        Text(
+          title,
+          style: GoogleFonts.roboto(
+              fontWeight: FontWeight.w700, fontSize: 18),
         ),
-        Text("grff"
-          // subtitle,
-          // style: Styles.headLineStyle7,
+        Text(
+          subtitle,
+          style: GoogleFonts.roboto(fontWeight: FontWeight.w500, fontSize: 15),
         ),
       ],
     );

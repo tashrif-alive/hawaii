@@ -1,58 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:hawaii/common/signUp/signup_bottom_widget.dart';
 import 'package:hawaii/common/signUp/signup_form_widget.dart';
 import 'package:hawaii/common/signUp/signup_item_widget.dart';
-import 'package:hawaii/screens/users/test.dart';
 import 'package:hawaii/widgets/form/form_header%20_widget.dart';
 
+import '../../widgets/navigation_bar/bottom_bar.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
+  get floatingActionButtonLocation => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown.shade50,
-      body: Stack(
-        alignment: Alignment.topLeft,
-        children: [
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children:[
-                FormHeaderWidget(
-                  image: 'assets/images/banners/login_animation.png',
-                  title: "Hello!",
-                  subtitle: "Create an account to explore your journey.",
-                ),
-                SignUpFormSection(),
-                SignUpItemWidget(),
-                SignUpBottomWidget(),
-              ],
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            FormHeaderWidget(
+              image: "assets/images/banners/hawaii.jpg",
+              title: "Hello!",
+              subtitle: "Create an account to explore your journey.",
             ),
-          ),
-          Positioned(
-            top: 20.0,
-            right: 16.0,
-            child: FloatingActionButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MyHomePage(),
-                  ),
-                );
-              },
-              mini: true,
-               backgroundColor: Colors.brown.withOpacity(0.1),
-              child: const Icon(
-                Icons.close,
-                size: 20,
-              ),
-            ),
-          ),
-        ],
+            SignUpFormSection(),
+            SignUpItemWidget(),
+          ],
+        ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const BottomBar(),
+            ),
+          );
+        },
+        mini: true,
+        backgroundColor: Colors.grey.shade100,
+        elevation: 0.0,
+        child: const Icon(
+          Icons.arrow_back_ios_new_outlined,color: Colors.black,
+          size: 20,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
     );
   }
 }
