@@ -1,7 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hawaii/screens/users/test.dart';
 import 'package:hawaii/screens/users/user_dashboard.dart';
 
 class BottomBar extends StatefulWidget {

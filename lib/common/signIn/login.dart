@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:hawaii/widgets/navigation_bar/bottom_bar.dart';
 import '../../widgets/form/form_header _widget.dart';
 import 'login_form_widget.dart';
@@ -27,12 +29,7 @@ class LoginScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const BottomBar(),
-            ),
-          );
+          Get.to(() => BottomBar());
         },
         mini: true,
         backgroundColor: Colors.grey.shade100,

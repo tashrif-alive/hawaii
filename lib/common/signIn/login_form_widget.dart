@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hawaii/controllers/signin_controller.dart';
-import 'package:hawaii/screens/splash_screen/splash_screen.dart';
 import 'package:hawaii/widgets/navigation_bar/bottom_bar.dart';
 import '../../controllers/singup_controller.dart';
 
@@ -43,12 +42,11 @@ class _LoginFormState extends State<LoginForm> {
         route();
         SignInController().login();
       }
-
-
     } catch (e) {
       print("Sign-up failed: $e");
     }
   }
+
   @override
   Widget build(BuildContext context) {
     final loginController = Get.put(SignInController());
@@ -115,23 +113,20 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
             ),
-
             Row(
               children: [
-                Obx(() => Switch(
-                  value: loginController.isAdmin.value,
-                  onChanged: (value) {
-                    loginController.setAdminStatus(value);
-                  },
-                )),
+                Obx(() => Checkbox(
+                      value: loginController.isAdmin.value,
+                      onChanged: (value) {
+                        loginController.setAdminStatus(value!);
+                      },
+                    )),
                 Text(
                   "Login as Admin",
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
             ),
-
-
             Padding(
               padding: const EdgeInsets.all(6.0),
               child: SizedBox(
@@ -139,10 +134,11 @@ class _LoginFormState extends State<LoginForm> {
                 child: ElevatedButton(
                   onPressed: () {
                     print("LOGIN PRESSED2");
-                   _signIn();
+                    _signIn();
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.black,),
+                    primary: Colors.black,
+                  ),
                   child: Text('Login'),
                 ),
               ),

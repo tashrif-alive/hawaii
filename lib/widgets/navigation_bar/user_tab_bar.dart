@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:hawaii/common/signIn/login.dart';
 
 import '../../utils/image_strings.dart';
+import 'bottom_bar.dart';
 class UserAppBar extends StatelessWidget implements PreferredSizeWidget{
   const UserAppBar({
     super.key,
@@ -24,7 +28,9 @@ class UserAppBar extends StatelessWidget implements PreferredSizeWidget{
 
         IconButton(
           icon: const Icon(Icons.person, color: Colors.black87,),
-          onPressed: () {},
+          onPressed: () {
+            Get.to(() => LoginScreen());
+          },
         ),
       ],
     );
