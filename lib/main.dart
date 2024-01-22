@@ -2,9 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:hawaii/common/signUp/signup.dart';
 import 'package:hawaii/firebase_options.dart';
 import 'package:hawaii/repositories/admin_repo/admin_repo.dart';
+import 'package:hawaii/routes/user_routes.dart';
+import 'package:hawaii/screens/splash_screen/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,12 +20,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+
       title: 'Hawaii: Ticket Reservation App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SignUpScreen(),
+      initialRoute: SplashScreen.routeName,
+      routes: routes,
     );
   }
 }

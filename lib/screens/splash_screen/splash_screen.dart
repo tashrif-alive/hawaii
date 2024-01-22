@@ -8,6 +8,8 @@ import 'package:hawaii/widgets/animations/fade_inout_view.dart';
 
 
 class SplashScreen extends StatelessWidget {
+  static String routeName = 'SplashScreen';
+
   const SplashScreen({Key? key}) : super(key: key);
 
   @override

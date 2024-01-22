@@ -1,16 +1,59 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hawaii/controllers/signin_controller.dart';
+import 'package:hawaii/screens/splash_screen/splash_screen.dart';
+import 'package:hawaii/widgets/navigation_bar/bottom_bar.dart';
 import '../../controllers/singup_controller.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   static final _formKey = GlobalKey<FormState>();
 
+  @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  void route() {
+    User? user = FirebaseAuth.instance.currentUser;
+    var kk = FirebaseFirestore.instance
+        .collection('admins')
+        .doc(user!.uid)
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+      if (documentSnapshot.exists) {
+        if (documentSnapshot.get('Role') == "admin") {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const BottomBar(),
+            ),
+          );
+        }
+      } else {
+        print('Document does not exist on the database');
+      }
+    });
+  }
+
+  void _signIn() async {
+    try {
+      if (LoginForm._formKey.currentState!.validate()) {
+        route();
+        SignInController().login();
+      }
+
+
+    } catch (e) {
+      print("Sign-up failed: $e");
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final loginController = Get.put(SignInController());
     return Form(
-      key: _formKey,
+      key: LoginForm._formKey,
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 18.0, horizontal: 10.0),
         child: Column(
@@ -96,9 +139,7 @@ class LoginForm extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     print("LOGIN PRESSED2");
-                    if (_formKey.currentState!.validate()) {
-                      loginController.login();
-                    }
+                   _signIn();
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,),

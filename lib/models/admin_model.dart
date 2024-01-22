@@ -21,6 +21,7 @@ class AdminModel {
       "Email": email,
       "Phone": phone,
       "Password": password,
+      "Role" : "admin",
     };
   }
 

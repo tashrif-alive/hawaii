@@ -21,6 +21,7 @@ class UserModel {
       "Email": email,
       "Phone": phone,
       "Password": password,
+      "Role" : "user"
     };
   }
 

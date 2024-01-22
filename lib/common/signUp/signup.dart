@@ -6,6 +6,7 @@ import 'package:hawaii/widgets/form/form_header%20_widget.dart';
 import '../../widgets/navigation_bar/bottom_bar.dart';
 
 class SignUpScreen extends StatelessWidget {
+  static String routeName = 'SignUpScreen';
   const SignUpScreen({Key? key}) : super(key: key);
 
   get floatingActionButtonLocation => null;

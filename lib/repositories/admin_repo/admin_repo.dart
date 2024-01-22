@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-
 import '../../models/admin_model.dart';
 
 class AdminRepo extends GetxController {
@@ -68,28 +67,28 @@ class AdminRepo extends GetxController {
     }
   }
 
-  // Fetch User Details
+  // Fetch Admin Details
   Future<AdminModel> getAdminDetails(String email) async {
     final snapshot = await _db.collection("admins").where("Email", isEqualTo: email).get(); // Updated collection name to "admins"
     final adminData = snapshot.docs.map((admin) => AdminModel.fromDatabase(admin)).single;
     return adminData;
   }
 
-  // Fetch User Name
+  // Fetch Admin Name
   Future<AdminModel> getAdminName(String email) async {
     final snapshot = await _db.collection("admins").where("Email", isEqualTo: email).get(); // Updated collection name to "admins"
     final adminData = snapshot.docs.map((admin) => AdminModel.fromDatabase(admin)).single;
     return adminData;
   }
 
-  // Fetch All Users
+  // Fetch All Admins
   Future<List<AdminModel>> getAllUsers() async {
     final snapshot = await _db.collection("admins").get(); // Updated collection name to "admins"
     final adminData = snapshot.docs.map((admin) => AdminModel.fromDatabase(admin)).toList();
     return adminData;
   }
 
-  // Update User Records
+  // Update Admin Records
   Future<void> updateAdminRecord(AdminModel admin) async {
     await _db.collection("admins").doc(admin.id).update(admin.toJson()); // Updated collection name to "admins"
   }

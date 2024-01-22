@@ -5,6 +5,7 @@ import 'login_form_widget.dart';
 import 'login_items_widget.dart';
 
 class LoginScreen extends StatelessWidget {
+  static String routeName = 'LoginScreen';
   const LoginScreen({Key? key}) : super(key: key);
 
   @override

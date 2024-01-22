@@ -2,6 +2,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hawaii/screens/users/test.dart';
+import 'package:hawaii/screens/users/user_dashboard.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class BottomBar extends StatefulWidget {
 class _BottomBarState extends State<BottomBar> {
   int selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
-    MyHomePage(),
+    UserDashboard(),
     Text("TOP UP"),
     Text("PROFILE"),
     // const ProfileScreen()
@@ -37,7 +38,7 @@ class _BottomBarState extends State<BottomBar> {
         onTap: _onItemTapped,
         showSelectedLabels: true,
         showUnselectedLabels: true,
-        selectedItemColor: Colors.purple.shade800,
+        selectedItemColor: Colors.black87,
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: Colors.blueGrey,
         items: [
