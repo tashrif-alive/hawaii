@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hawaii/models/user_model.dart';
-
+import 'package:hawaii/screens/users/user_dashboard.dart';
 import '../../controllers/singup_controller.dart';
 
 class SignUpFormSection extends StatelessWidget {
   static final _formKey = GlobalKey<FormState>();
+  final registerController = Get.put(SignUpController());
+
+  void registerButton() {
+    if (_formKey.currentState!.validate()) {
+      final userData = UserModel(
+        fullName: registerController.fullName.text.trim(),
+        phone: registerController.phoneNum.text.trim(),
+        email: registerController.email.text.trim(),
+        password: registerController.password.text.trim(),
+      );
+      registerController.signUp();
+      Get.offAll(() => UserDashboard());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final registerController = Get.put(SignUpController());
-
     return Form(
       key: _formKey,
       child: Container(
@@ -124,15 +136,7 @@ class SignUpFormSection extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      final userData = UserModel(
-                        fullName: registerController.fullName.text.trim(),
-                        phone: registerController.phoneNum.text.trim(),
-                        email: registerController.email.text.trim(),
-                        password: registerController.password.text.trim(),
-                      );
-                      registerController.signUp();
-                    }
+                    registerButton();
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
