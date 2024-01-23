@@ -59,7 +59,7 @@ class SplashScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("airVenture",
+                Text("hawaii",
                     style: Theme.of(context).textTheme.subtitle2!.copyWith(
                           fontSize: 24,
                           color: Colors.yellow,
@@ -78,7 +78,7 @@ class SplashScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("air_tagline",
+                Text("Hawaii_tagline",
                     style: Theme.of(context).textTheme.headline2!.copyWith(
                           fontSize: 32.0,
                           color: Colors.black87,

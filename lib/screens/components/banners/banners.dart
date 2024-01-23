@@ -69,7 +69,7 @@ class _PosterState extends State<Poster> {
 
                           SizedBox(height: getProportionateScreenHeight(7)),
                           Text(
-                            "Playpillars".toUpperCase(),
+                            "Hawaii.".toLowerCase(),
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
@@ -83,7 +83,7 @@ class _PosterState extends State<Poster> {
 
                           SizedBox(height: getProportionateScreenHeight(6)),
                           Text(
-                            "top up diamond".toUpperCase(),
+                            "fly high".toUpperCase(),
                             style: TextStyle(
                               fontSize: getProportionateScreenHeight(10),
                               fontWeight: FontWeight.bold,
