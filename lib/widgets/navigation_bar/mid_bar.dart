@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hawaii/widgets/navigation_bar/widgets/mid_bar_widget.dart';
+import 'package:hawaii/widgets/navigation_bar/widgets_materials/mid_bar_widget.dart';
 
 
 class MidBar extends StatelessWidget {

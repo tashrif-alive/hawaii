@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../screens/components/banners/banners_theme.dart';
 
 
-const kPrimaryColor = Color(0xFF7A14E8);
+const kPrimaryColor = Colors.white54;
 const kPrimaryLightColor = Color(0xFFFFECDF);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
