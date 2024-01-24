@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:hawaii/controllers/singup_controller.dart';
-import 'package:hawaii/repositories/admin_repo/admin_repo.dart';
-import 'package:hawaii/repositories/auth_repo/auth_repo.dart';
+import '../data/repositories/admin_repo/admin_repo.dart';
+import '../data/repositories/auth_repo/auth_repo.dart';
 
 class SignInController extends GetxController {
   static SignInController get instance => Get.find();

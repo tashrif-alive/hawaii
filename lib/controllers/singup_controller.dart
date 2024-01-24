@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:hawaii/models/admin_model.dart';
 import 'package:hawaii/models/user_model.dart';
-import 'package:hawaii/repositories/admin_repo/admin_repo.dart';
-import 'package:hawaii/repositories/auth_repo/auth_repo.dart';
-import 'package:hawaii/repositories/user_repo/user_repo.dart';
+import '../data/repositories/admin_repo/admin_repo.dart';
+import '../data/repositories/auth_repo/auth_repo.dart';
+import '../data/repositories/user_repo/user_repo.dart';
 
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
