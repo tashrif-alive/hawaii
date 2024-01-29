@@ -32,7 +32,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
                 selectedIcon: Icon(Iconsax.home_25),
                 label: "Home"),
             NavigationDestination(
-                icon: Icon(Iconsax.),
+                icon: Icon(Iconsax.home),
                 selectedIcon: Icon(Iconsax.user),
                 label: "Home"),
             NavigationDestination(
