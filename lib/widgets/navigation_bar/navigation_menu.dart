@@ -1,8 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:hawaii/screens/contact_us/contact_us.dart';
 import 'package:hawaii/screens/users/user_dashboard.dart';
 import 'package:iconsax/iconsax.dart';
+
+import '../../screens/components/hawaii_services/services.dart';
 
 class NavigationMenu extends StatefulWidget {
   const NavigationMenu({super.key});
@@ -19,31 +25,60 @@ class _NavigationMenuState extends State<NavigationMenu> {
     return Scaffold(
       bottomNavigationBar: Obx(
         () => NavigationBar(
-          height: 60,
+          height: 70,
           elevation: 1,
           backgroundColor: Colors.grey.shade50,
-          surfaceTintColor: Colors.grey.shade100,
+          surfaceTintColor: Colors.red,
           selectedIndex: controller.selectedIndex.value,
           onDestinationSelected: (index) =>
               controller.selectedIndex.value = index,
-          destinations: const [
+          destinations:  [
             NavigationDestination(
-                icon: Icon(Iconsax.home_24),
-                selectedIcon: Icon(Iconsax.home_25),
-                label: "Home"),
+              icon: SvgPicture.asset(
+                'assets/icons/home.svg',
+                height: 40, // Replace with the desired height
+              ),
+              selectedIcon: SvgPicture.asset(
+                'assets/icons/home_active.svg',
+                height: 40, // Replace with the desired height
+              ),
+              label: "Home",
+            ),
             NavigationDestination(
-                icon: Icon(Iconsax.home),
-                selectedIcon: Icon(Iconsax.user),
-                label: "Home"),
+              icon: SvgPicture.asset(
+                'assets/icons/trip.svg',
+                height:40, // Replace with the desired height
+              ),
+              selectedIcon: SvgPicture.asset(
+                'assets/icons/trip_active.svg',
+                height: 40, // Replace with the desired height
+              ),
+              label: "My Trip",
+            ),
             NavigationDestination(
-                icon: Icon(Iconsax.messages),
-                selectedIcon: Icon(Iconsax.messages_25),
-                label: "Home"),
+              icon: SvgPicture.asset(
+                'assets/icons/contact.svg',
+                height: 40, // Replace with the desired height
+              ),
+              selectedIcon: SvgPicture.asset(
+                'assets/icons/contact_active.svg',
+                height: 40, // Replace with the desired height
+              ),
+              label: "Contact Us",
+            ),
             NavigationDestination(
-                icon: Icon(Iconsax.menu5),
-                selectedIcon: Icon(Iconsax.home_25),
-                label: "Home"),
+              icon: SvgPicture.asset(
+                'assets/icons/more.svg',
+                height: 40, // Replace with the desired width
+              ),
+              selectedIcon: SvgPicture.asset(
+                'assets/icons/more_active.svg',
+                height: 40, // Replace with the desired height
+              ),
+              label: "More",
+            ),
           ],
+
         ),
       ),
       body: Obx(() => controller.screens[controller.selectedIndex.value]),
@@ -56,12 +91,8 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
   final screens = [
     const UserDashboard(),
-    Container(
-      color: Colors.blue,
-    ),
-    Container(
-      color: Colors.yellow,
-    ),
+    Services(textTheme: Typography.blackCupertino,),
+    const ContactUs(),
     Container(
       color: Colors.red,
     )
