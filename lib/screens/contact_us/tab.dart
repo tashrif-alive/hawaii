@@ -4,6 +4,7 @@ import 'package:hawaii/screens/contact_us/pre_booking_qs_hotel.dart';
 import 'package:hawaii/screens/contact_us/pre_booking_qs_packages.dart';
 import 'package:hawaii/screens/contact_us/pre_bookings_qs.dart';
 
+
 class PrebookigTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,9 @@ class PrebookigTabBar extends StatelessWidget {
             ],
           ),
         ),
-        body:    TabBarView(
+
+        body:   const TabBarView(
+
           children: [
             PreBookQus(),
             PreBookQusHotel(),

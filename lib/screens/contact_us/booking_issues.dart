@@ -37,7 +37,6 @@ class IssuesBooking extends StatelessWidget {
               Center(
                   child: Text(
                 "Seems you don't have any bookings",
-
               )),
             ],
           ),

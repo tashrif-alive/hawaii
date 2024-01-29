@@ -13,12 +13,10 @@ class ContactUs extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Contact Us",
-            style:
-                GoogleFonts.poppins(fontWeight: FontWeight.bold,color: Colors.black)),
+            style: GoogleFonts.poppins(fontWeight: FontWeight.bold,color: Colors.black)),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.white,
-      ),
+        backgroundColor: Colors.white),
       backgroundColor: Colors.brown.shade50,
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
@@ -99,6 +97,7 @@ class ContactUs extends StatelessWidget {
                 //     builder: (context) => const UpdateProfile(),
                 //   ),
                 // );
+
               },
             ),
             const Divider(
