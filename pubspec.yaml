@@ -73,6 +73,7 @@ flutter:
     - assets/
     - assets/icons/
     - assets/images/
+    - assets/images/benefits/
     - assets/images/logos/
     - assets/images/banners/
     - assets/images/destination/

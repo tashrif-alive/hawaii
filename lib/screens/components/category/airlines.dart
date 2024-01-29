@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 final List<Widget> carouselItems = [
-  Image.network("jBanner"),
-  Image.network("jBanner"),
-  Image.network("jBanner"),
-  Image.network("jBanner"),
-  Image.network("jBanner"),
+  Image.asset("assets/images/benefits/bene.png"),
+  Image.asset("assets/images/benefits/bene2.png"),
+  Image.asset("assets/images/benefits/bene3.png"),
+  Image.asset("assets/images/benefits/bene4.png"),
+  Image.asset("assets/images/benefits/bene5.png"),
+  Image.asset("assets/images/benefits/bene6.png"),
+
 ];
 class MyCarousel extends StatelessWidget {
   const MyCarousel({super.key});

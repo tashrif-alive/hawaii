@@ -1,13 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:hawaii/screens/contact_us/contact_us.dart';
 import 'package:hawaii/screens/users/user_dashboard.dart';
-import 'package:iconsax/iconsax.dart';
-
 import '../../screens/components/hawaii_services/services.dart';
 
 class NavigationMenu extends StatefulWidget {
