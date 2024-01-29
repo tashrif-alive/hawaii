@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hawaii/widgets/navigation_bar/bottom_bar.dart';
+import 'package:hawaii/widgets/navigation_bar/navigation_menu.dart';
 
 
 
@@ -15,7 +16,7 @@ class TTS_AnimationController extends GetxController{
     await Future.delayed(Duration(milliseconds: 5000));
     animate.value = false;
     await Future.delayed(Duration(milliseconds: 2000));
-    Get.offAll(() => BottomBar());
+    Get.offAll(() => NavigationMenu());
   }
   Future startAnimation() async {
     await Future.delayed(Duration(milliseconds: 500));

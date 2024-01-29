@@ -26,6 +26,7 @@ dependencies:
   # Icon Packages:
   cupertino_icons: ^1.0.2
   fluentui_icons: ^1.0.0
+  iconsax: ^0.0.8
   lottie: ^2.3.1
 
   # Fonts:
@@ -40,6 +41,7 @@ dependencies:
   #Others
   flutter_otp_text_field: ^1.1.1
   flutter_native_splash: ^2.2.19
+  flutter_svg: ^1.0.0
 
   #Firebase
   firebase_core: ^2.24.2
@@ -69,6 +71,7 @@ flutter:
   #---------------------------------------------Local Assets-----------------------------------------------#
   assets:
     - assets/
+    - assets/icons/
     - assets/images/
     - assets/images/logos/
     - assets/images/banners/
