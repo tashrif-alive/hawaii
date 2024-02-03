@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:hawaii/screens/admin/components/all_user_details_admin.dart';
+import 'package:hawaii/widgets/navigation_bar/admin_tab_bar.dart';
+
 class AdminDashboard extends StatefulWidget {
   static String routeName = 'AdminDashboard';
+
   const AdminDashboard({super.key});
 
   @override
@@ -11,54 +19,48 @@ class _AdminDashboardState extends State<AdminDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Admin Dashboard'),
-      ),
+      appBar: AdminAppBar(),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'Welcome, Admin!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            const Text(
+              'User Statistics',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
-            Card(
-              child: ListTile(
-                leading: Icon(Icons.dashboard),
-                title: Text('Dashboard'),
-                onTap: () {
-                  // Handle dashboard tap
-                },
-              ),
-            ),
-            Card(
-              child: ListTile(
-                leading: Icon(Icons.people),
-                title: Text('Users'),
-                onTap: () {
-                  // Handle users tap
-                },
-              ),
-            ),
-            Card(
-              child: ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
-                onTap: () {
-                  // Handle settings tap
-                },
-              ),
-            ),
-            // Add more cards for other sections
-
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // Handle logout button tap
+            GestureDetector(
+              onTap: () {
+                Get.to(UserDetailsAdmin());
+                print("Card tapped!");
               },
-              child: Text('Logout'),
+              child: Card(
+                elevation: 2,
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/users.svg',
+                      width: MediaQuery.of(context).size.width * 0.05,
+                      height: MediaQuery.of(context).size.height * 0.08,
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "15",
+                          style: GoogleFonts.roboto(
+                              fontSize: 30, fontWeight: FontWeight.w700),
+                        ),
+                        Text(
+                          "Users",
+                          style: GoogleFonts.roboto(
+                              fontSize: 16, fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),

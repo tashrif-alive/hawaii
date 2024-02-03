@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hawaii/screens/splash_screen/splash_screen.dart';
-import 'package:hawaii/widgets/navigation_bar/bottom_bar.dart';
+import '../../../widgets/navigation_bar/navigation_menu.dart';
 import '../exceptions/login_email_pass_exceptions.dart';
 import '../exceptions/signup_email_pass_failure.dart';
 
@@ -21,13 +21,13 @@ class AuthRepo extends GetxController {
   }
 
   _setInitialScreen(User? user) {
-    user == null ? Get.offAll(() => const SplashScreen()) : Get.offAll(() => BottomBar());
+    user == null ? Get.offAll(() => const SplashScreen()) : Get.offAll(() => NavigationMenu());
   }
 
   Future<void> createUserEmailPass(String email, String password) async {
     try {
       await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      firebaseUser.value != null ? Get.offAll(() => const BottomBar()) : Get.offAll(() => SplashScreen());
+      firebaseUser.value != null ? Get.offAll(() => const NavigationMenu()) : Get.offAll(() => SplashScreen());
     } on FirebaseAuthException catch (e) {
       final ex = createUserEmailPassExceptions.code(e.code);
       Get.snackbar(
@@ -68,7 +68,7 @@ class AuthRepo extends GetxController {
   Future<void> loginEmailPass(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      firebaseUser.value != null ? Get.offAll(() => const BottomBar()) : Get.offAll(() => SplashScreen());
+      firebaseUser.value != null ? Get.offAll(() => const NavigationMenu()) : Get.offAll(() => SplashScreen());
     } on FirebaseAuthException catch (e) {
       final ex = loginUserEmailPassExceptions.code(e.code);
       Get.snackbar(

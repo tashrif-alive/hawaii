@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../utils/app_text.dart';
+import '../../../../utils/app_text.dart';
 import 'banner_dot_indicator.dart';
 import 'banner_materials.dart';
 import 'banners_theme.dart';

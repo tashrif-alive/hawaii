@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hawaii/widgets/navigation_bar/bottom_bar.dart';
 import 'package:hawaii/widgets/navigation_bar/navigation_menu.dart';
 
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hawaii/screens/components/search/search_results_page.dart';
+import 'package:hawaii/screens/users/components/search/search_results_page.dart';
 class SearchPage extends StatelessWidget {
   final TextEditingController _passportController = TextEditingController();
 

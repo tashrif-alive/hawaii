@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hawaii/screens/components/banners/banners.dart';
-import 'package:hawaii/screens/components/category/airlines.dart';
-import 'package:hawaii/screens/components/category/dash_category_widget.dart';
-import 'package:hawaii/screens/components/search/search_box.dart';
 import '../../widgets/navigation_bar/search_bar_widget.dart';
 import '../../widgets/navigation_bar/user_tab_bar.dart';
+import 'components/banners/banners.dart';
+import 'components/category/airlines.dart';
+import 'components/category/dash_category_widget.dart';
+import 'components/search/search_box.dart';
 
 class UserDashboard extends StatefulWidget {
   static String routeName = 'UserDashboard';

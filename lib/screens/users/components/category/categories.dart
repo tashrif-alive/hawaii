@@ -27,6 +27,6 @@ const String jBandarbanImage = "assets/images/destination/img_destination_bandun
 const String jSylhet = "Sylhet";
 const String jSylhetImage = "assets/images/destination/sylhet.png";
 
-const String jMalaysiya = "Malaysiya";
-const String jMalaysiyaImage = "assets/images/destination/malaysia.jpeg";
+// const String jMalaysiya = "Malaysiya";
+// const String jMalaysiyaImage = "assets/images/destination/malaysia.jpg";
 

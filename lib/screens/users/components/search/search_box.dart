@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../controllers/search_box_controller.dart';
-import '../../../widgets/navigation_bar/flight_class.dart';
+import '../../../../controllers/search_box_controller.dart';
+import '../../../../widgets/navigation_bar/flight_class.dart';
 import 'flight_result.dart';
 
 class SearchBoxs extends StatelessWidget {

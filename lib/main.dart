@@ -5,7 +5,9 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hawaii/controllers/singup_controller.dart';
 import 'package:hawaii/firebase_options.dart';
 import 'package:hawaii/routes/user_routes.dart';
+import 'package:hawaii/screens/admin/admin_dashboard.dart';
 import 'package:hawaii/screens/splash_screen/splash_screen.dart';
+import 'package:hawaii/widgets/navigation_bar/admin_appbar.dart';
 
 import 'data/repositories/admin_repo/admin_repo.dart';
 
@@ -44,7 +46,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: blackSwatch,
       ),
-      initialRoute: SplashScreen.routeName,
+      initialRoute: AdminBottomBar.routeName,
       routes: routes,
     );
   }

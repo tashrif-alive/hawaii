@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hawaii/screens/components/search/ticket_controller.dart';
+import 'package:hawaii/screens/users/components/search/ticket_controller.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../../models/search_model.dart';
+import '../../../../models/search_model.dart';
 import 'destination_details_page.dart';
 import 'moved_ticket_model.dart';
 

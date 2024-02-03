@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/app_text.dart';
+import '../../../../utils/app_text.dart';
+
 
 class DotIndicator extends StatelessWidget {
   const DotIndicator({

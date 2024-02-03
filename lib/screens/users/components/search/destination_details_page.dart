@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hawaii/screens/components/search/search_page.dart';
+import 'package:hawaii/screens/users/components/search/search_page.dart';
 import 'package:intl/intl.dart';
-import '../../../models/search_model.dart';
+import '../../../../models/search_model.dart';
+
 
 class DestinationDetailsPage extends StatelessWidget {
   final FlightSearchModel flight;

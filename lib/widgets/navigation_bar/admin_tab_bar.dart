@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:hawaii/common/signIn/login.dart';
 import '../../utils/image_strings.dart';
-class UserAppBar extends StatelessWidget implements PreferredSizeWidget{
-  const UserAppBar({
+class AdminAppBar extends StatelessWidget implements PreferredSizeWidget{
+  const AdminAppBar({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class UserAppBar extends StatelessWidget implements PreferredSizeWidget{
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.grey.shade50,
-      elevation: 0,
+      elevation: 0.4,
       title: Image.asset(
         Hawaii_logo,
         height: MediaQuery.of(context).size.height*0.05,

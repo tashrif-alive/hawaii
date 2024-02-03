@@ -73,10 +73,10 @@ class Services extends StatelessWidget {
                           color: Colors.green,
                         ),
                       ),
-                      Text(
-                        "${catItems[index].catJobs}",
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
+                      // Text(
+                      //   "${catItems[index].catJobs}",
+                      //   style: const TextStyle(fontWeight: FontWeight.bold),
+                      // ),
                     ],
                   ),
                 )

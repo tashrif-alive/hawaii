@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/components/banners/banners_theme.dart';
+import '../screens/users/components/banners/banners_theme.dart';
 
 
 const kPrimaryColor = Colors.white54;

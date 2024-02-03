@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hawaii/screens/components/search/purchase_confirmation_page.dart';
+import 'package:hawaii/screens/users/components/search/purchase_confirmation_page.dart';
 
 class DetailsPage extends StatelessWidget {
   final Map<String, dynamic> data;

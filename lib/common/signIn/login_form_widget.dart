@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hawaii/controllers/signin_controller.dart';
-import 'package:hawaii/widgets/navigation_bar/bottom_bar.dart';
 import '../../controllers/singup_controller.dart';
+import '../../widgets/navigation_bar/navigation_menu.dart';
 
 class LoginForm extends StatefulWidget {
   static final _formKey = GlobalKey<FormState>();
@@ -26,7 +26,7 @@ class _LoginFormState extends State<LoginForm> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => const BottomBar(),
+              builder: (context) => const NavigationMenu(),
             ),
           );
         }

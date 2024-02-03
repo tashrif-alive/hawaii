@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dash_category_model.dart';
-import 'dash_category_widget.dart';
 
 class DashCategoryWidget extends StatelessWidget {
   DashCategoryWidget({

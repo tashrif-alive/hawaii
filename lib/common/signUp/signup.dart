@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hawaii/common/signUp/signup_form_widget.dart';
 import 'package:hawaii/common/signUp/signup_item_widget.dart';
 import 'package:hawaii/widgets/form/form_header%20_widget.dart';
-
-import '../../widgets/navigation_bar/bottom_bar.dart';
+import '../../widgets/navigation_bar/navigation_menu.dart';
 
 class SignUpScreen extends StatelessWidget {
   static String routeName = 'SignUpScreen';
@@ -34,7 +33,7 @@ class SignUpScreen extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const BottomBar(),
+              builder: (context) => const NavigationMenu(),
             ),
           );
         },
