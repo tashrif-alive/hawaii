@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 
-class GridBuilder extends StatefulWidget {
-  const GridBuilder({super.key});
+class AdminuserComponent extends StatefulWidget {
+  const AdminuserComponent({Key? key});
 
   @override
-  State<GridBuilder> createState() => _GridBuilderState();
+  State<AdminuserComponent> createState() => _AdminuserComponentState();
 }
-class _GridBuilderState extends State<GridBuilder> {
-  @override
 
-  // index=[Text("data")]
+class _AdminuserComponentState extends State<AdminuserComponent> {
+  @override
   Widget build(BuildContext context) {
+    // Assuming you have a List of data
+    List<String> cardData = ['Card 0', 'Card 1', 'Card 2', 'Card 3'];
+
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2, // Number of columns in the grid
-        crossAxisSpacing: 16.0,
-        mainAxisSpacing: 16.0,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 4,
       ),
-      itemCount: 4, // Number of items/cards in the grid
+      itemCount: cardData.length,
       itemBuilder: (context, index) {
         return Card(
           color: Colors.black,
           elevation: 3.0,
           child: Center(
             child: Text(
-              'Card $index',
-              style: TextStyle(fontSize: 18.0),
+              cardData[index],
+              style: const TextStyle(fontSize: 18.0),
             ),
           ),
         );

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hawaii/screens/admin/components/all_user_details_admin.dart';
+import 'package:hawaii/screens/users/user_list.dart';
 import 'package:hawaii/widgets/navigation_bar/admin_tab_bar.dart';
 
 class AdminDashboard extends StatefulWidget {
@@ -19,7 +20,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AdminAppBar(),
+      appBar: const AdminAppBar(),
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -32,7 +33,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(UserDetailsAdmin());
+                Get.to(const UserDetailsAdmin());
                 print("Card tapped!");
               },
               child: Card(

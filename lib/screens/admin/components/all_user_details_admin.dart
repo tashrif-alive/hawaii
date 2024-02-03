@@ -2,10 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hawaii/screens/admin/admin_dashboard.dart';
 import 'package:hawaii/screens/admin/components/adminuser_component.dart';
 import 'package:hawaii/screens/admin/components/search_admin_items.dart';
+import 'package:hawaii/screens/users/user_list.dart';
+
+import '../admin_dashboard.dart';
 
 class UserDetailsAdmin extends StatefulWidget {
   const UserDetailsAdmin({Key? key}) : super(key: key);
@@ -23,7 +26,8 @@ class _UserDetailsAdminState extends State<UserDetailsAdmin> {
         backgroundColor: Colors.grey.shade50,
         leading: IconButton(
           onPressed: () {
-            Get.to(AdminDashboard()); // Remove the const keyword
+            // Use Get.off instead of Get.to
+            Get.off(const AdminDashboard());
           },
           icon: const Icon(
             Icons.arrow_back,
@@ -43,7 +47,7 @@ class _UserDetailsAdminState extends State<UserDetailsAdmin> {
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(12.0),
             child: Align(
               alignment: Alignment.topCenter,
               child: Row(
@@ -51,24 +55,34 @@ class _UserDetailsAdminState extends State<UserDetailsAdmin> {
                 children: [
                   SearchAdminBarWidget(),
                   Container(
-                    height: 45,
+                    height: MediaQuery.of(context).size.width * 0.12,
                     width: MediaQuery.of(context).size.width * 0.12,
-                    // color: Colors.lightBlue,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.black87
+                      color: Colors.black87,
                     ),
                     child: SvgPicture.asset(
-                      'assets/icons/filter.svg',fit: BoxFit.cover,
-                      width: MediaQuery.of(context).size.width * 1,
-                      height: MediaQuery.of(context).size.height * 1,
-                    )
+                      'assets/icons/filter.svg',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ],
               ),
             ),
           ),
-          const GridBuilder(),
+          Container(
+            height: 100,
+            width: double.infinity,
+            color: Colors.blue,
+            child: const AdminuserComponent(),
+          ),
+
+          Container(
+            height: 500,
+            width: double.infinity,
+            color: Colors.blue,
+            child: const UserList(),
+          ),
         ],
       ),
     );
