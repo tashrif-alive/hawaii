@@ -37,19 +37,19 @@ class _UserDetailsAdminState extends State<UserDetailsAdmin> {
         title: Text(
           "Users",
           style: GoogleFonts.roboto(
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
             fontSize: 16,
             color: Colors.black,
           ),
         ),
+        centerTitle: true,
       ),
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Align(
-              alignment: Alignment.topCenter,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(12.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -69,21 +69,27 @@ class _UserDetailsAdminState extends State<UserDetailsAdmin> {
                 ],
               ),
             ),
-          ),
-          Container(
-            height: 100,
-            width: double.infinity,
-            color: Colors.blue,
-            child: const AdminuserComponent(),
-          ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Container(
+                height: 100,
+                width: double.infinity,
+                color: Colors.blue,
+                child: const AdminuserComponent(),
+              ),
+            ),
 
-          Container(
-            height: 500,
-            width: double.infinity,
-            color: Colors.blue,
-            child: const UserList(),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Container(
+                height: 300,
+                width: double.infinity,
+                color: Colors.blue,
+                child: const UserList(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hawaii/screens/admin/components/all_user_details_admin.dart';
-import 'package:hawaii/screens/users/user_list.dart';
 import 'package:hawaii/widgets/navigation_bar/admin_tab_bar.dart';
 
 class AdminDashboard extends StatefulWidget {

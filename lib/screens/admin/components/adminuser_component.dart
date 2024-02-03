@@ -16,16 +16,19 @@ class _AdminuserComponentState extends State<AdminuserComponent> {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
+
       ),
       itemCount: cardData.length,
       itemBuilder: (context, index) {
-        return Card(
-          color: Colors.black,
-          elevation: 3.0,
-          child: Center(
-            child: Text(
-              cardData[index],
-              style: const TextStyle(fontSize: 18.0),
+        return Container(
+          child: Card(
+            color: Colors.purple[50],
+            elevation: 3.0,
+            child: Center(
+              child: Text(
+                cardData[index],
+                style: const TextStyle(fontSize: 18.0),
+              ),
             ),
           ),
         );
