@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: blackSwatch,
       ),
-      initialRoute: AdminBottomBar.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: routes,
     );
   }

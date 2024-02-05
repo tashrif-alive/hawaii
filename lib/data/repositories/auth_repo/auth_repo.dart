@@ -1,7 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hawaii/controllers/singup_controller.dart';
 import 'package:hawaii/screens/splash_screen/splash_screen.dart';
+import '../../../screens/admin/admin_dashboard.dart';
 import '../../../widgets/navigation_bar/navigation_menu.dart';
 import '../exceptions/login_email_pass_exceptions.dart';
 import '../exceptions/signup_email_pass_failure.dart';
@@ -12,6 +15,7 @@ class AuthRepo extends GetxController {
   // Variable
   final _auth = FirebaseAuth.instance;
   late final Rx<User?> firebaseUser;
+  final signupcontroller = Get.put(SignUpController());
 
   @override
   void onReady() {
@@ -68,7 +72,32 @@ class AuthRepo extends GetxController {
   Future<void> loginEmailPass(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      firebaseUser.value != null ? Get.offAll(() => const NavigationMenu()) : Get.offAll(() => SplashScreen());
+      User? user = FirebaseAuth.instance.currentUser;
+      var kk = FirebaseFirestore.instance
+          .collection('admins')
+          .doc(user!.uid)
+          .get()
+          .then((DocumentSnapshot documentSnapshot) {
+        if (documentSnapshot.exists) {
+          if (documentSnapshot.get('Role') == "admin") {
+            Navigator.pushReplacement(
+              Get.context!,
+              MaterialPageRoute(
+                builder: (context) => const AdminDashboard(),
+              ),
+            );
+          }
+        } else {
+          Navigator.pushReplacement(
+            Get.context!,
+            MaterialPageRoute(
+              builder: (context) => const NavigationMenu(),
+            ),
+          );
+          print('Document does not exist on the database');
+        }
+      });
+      // firebaseUser.value != null ? Get.offAll(() =>  const NavigationMenu()) : Get.offAll(() => SplashScreen());
     } on FirebaseAuthException catch (e) {
       final ex = loginUserEmailPassExceptions.code(e.code);
       Get.snackbar(
@@ -105,6 +134,8 @@ class AuthRepo extends GetxController {
       throw ex;
     }
   }
+
+
 
   Future<void> logOut() async => await _auth.signOut();
 }

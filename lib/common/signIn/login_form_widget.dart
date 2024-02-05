@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hawaii/controllers/signin_controller.dart';
 import '../../controllers/singup_controller.dart';
+import '../../screens/admin/admin_dashboard.dart';
 import '../../widgets/navigation_bar/navigation_menu.dart';
 
 class LoginForm extends StatefulWidget {
@@ -26,11 +27,17 @@ class _LoginFormState extends State<LoginForm> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => const NavigationMenu(),
+              builder: (context) => const AdminDashboard(),
             ),
           );
         }
       } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const NavigationMenu(),
+          ),
+        );
         print('Document does not exist on the database');
       }
     });
@@ -39,11 +46,11 @@ class _LoginFormState extends State<LoginForm> {
   void _signIn() async {
     try {
       if (LoginForm._formKey.currentState!.validate()) {
-        route();
-        SignInController().login();
+        // route();
+         SignInController().login();
       }
     } catch (e) {
-      print("Sign-up failed: $e");
+      print("Sign-In failed: $e");
     }
   }
 

@@ -117,7 +117,8 @@ class SignUpFormSection extends StatelessWidget {
                 Obx(() => Checkbox(
                       value: registerController.isAdmin.value,
                       onChanged: (value) {
-                        registerController.setAdminStatus(value!);
+                        registerController.isAdmin.value=!registerController.isAdmin.value;
+                        // registerController.setAdminStatus(value!);
                       },
                       checkColor: Colors.white,
                     )),
