@@ -138,10 +138,6 @@ class SignUpFormSection extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     registerButton();
-                    registerController.fullName.clear();
-                    registerController.email.clear();
-                    registerController.phoneNum.clear();
-                    registerController.password.clear();
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
