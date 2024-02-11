@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MaterialColor blackSwatch = MaterialColor(
+    MaterialColor blackSwatch = const MaterialColor(
       0xFF000000, // The primary value
       <int, Color>{
         50: Colors.black, // You can define shades as needed

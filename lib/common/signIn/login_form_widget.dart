@@ -120,21 +120,8 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
             ),
-            Row(
-              children: [
-                Obx(() => Checkbox(
-                      value: loginController.isAdmin.value,
-                      onChanged: (value) {
-                        loginController.setAdminStatus(value!);
-                      },
-                    )),
-                Text(
-                  "Login as Admin",
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-              ],
-            ),
             Padding(
+                           
               padding: const EdgeInsets.all(6.0),
               child: SizedBox(
                 width: double.infinity,
@@ -149,6 +136,10 @@ class _LoginFormState extends State<LoginForm> {
                   child: Text('Login'),
                 ),
               ),
+            ),
+            TextButton(
+                onPressed: (){},
+                child: Text("Login as Admin"),
             ),
           ],
         ),
