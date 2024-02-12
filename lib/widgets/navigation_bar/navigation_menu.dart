@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:hawaii/common/signIn/adminuser_signin.dart';
 import 'package:hawaii/screens/contact_us/contact_us.dart';
 import 'package:hawaii/screens/users/user_dashboard.dart';
 import '../../screens/users/components/hawaii_services/services.dart';
@@ -89,8 +90,6 @@ class NavigationController extends GetxController {
     const UserDashboard(),
     Services(textTheme: Typography.blackCupertino,),
     const ContactUs(),
-    Container(
-      color: Colors.red,
-    )
+    LoginPage()
   ];
 }

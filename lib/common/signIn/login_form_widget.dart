@@ -102,7 +102,6 @@ class _LoginFormState extends State<LoginForm> {
                   if (value == null || value.isEmpty) {
                     return 'Password is Required!';
                   }
-                  // You can add more conditions for password validation if needed
                   return null;
                 },
                 decoration: InputDecoration(
@@ -120,20 +119,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
             ),
-            Row(
-              children: [
-                Obx(() => Checkbox(
-                      value: loginController.isAdmin.value,
-                      onChanged: (value) {
-                        loginController.setAdminStatus(value!);
-                      },
-                    )),
-                Text(
-                  "Login as Admin",
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-              ],
-            ),
+
             Padding(
               padding: const EdgeInsets.all(6.0),
               child: SizedBox(
