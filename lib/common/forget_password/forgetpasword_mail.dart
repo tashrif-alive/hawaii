@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hawaii/common/signIn/login.dart';
+import 'package:hawaii/common/signIn/user_login.dart';
 import 'package:hawaii/widgets/form/form_field_widget.dart';
 import 'package:hawaii/widgets/form/form_header%20_widget.dart';
 
@@ -83,7 +83,7 @@ class ForgetPasswordMailScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const LoginScreen(),
+                        builder: (context) => const UserLoginScreen(),
                       ),
                     );
                   },

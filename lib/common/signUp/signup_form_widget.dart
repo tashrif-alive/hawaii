@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hawaii/common/signIn/adminuser_signin.dart';
 import 'package:hawaii/models/user_model.dart';
-import 'package:hawaii/screens/users/user_dashboard.dart';
 import '../../controllers/singup_controller.dart';
 
 class SignUpFormSection extends StatelessWidget {
@@ -17,7 +17,7 @@ class SignUpFormSection extends StatelessWidget {
         password: registerController.password.text.trim(),
       );
       registerController.signUp();
-      Get.offAll(() => UserDashboard());
+      Get.offAll(() => const LoginPage());
     }
   }
 

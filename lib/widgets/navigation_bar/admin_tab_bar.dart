@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:hawaii/common/signIn/login.dart';
+import 'package:hawaii/common/signIn/adminuser_signin.dart';
 import '../../utils/image_strings.dart';
 class AdminAppBar extends StatelessWidget implements PreferredSizeWidget{
   const AdminAppBar({
@@ -27,7 +27,7 @@ class AdminAppBar extends StatelessWidget implements PreferredSizeWidget{
         IconButton(
           icon: const Icon(Icons.person, color: Colors.black87,),
           onPressed: () {
-            Get.to(() => LoginScreen());
+            Get.to(() => const LoginPage());
           },
         ),
       ],

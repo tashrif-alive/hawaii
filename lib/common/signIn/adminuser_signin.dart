@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:hawaii/common/signIn/admin_login.dart';
+import 'package:hawaii/common/signIn/user_login.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -16,18 +20,18 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Column(
             children: [
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.5,
                 child: Image.asset("assets/images/logos/hawaii.png"),
               ),
             ],
           ),
           Positioned(
-            bottom: 0,
+            bottom: 10,
             left: 0,
             right: 0,
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               color: Colors.white,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -39,7 +43,9 @@ class _LoginPageState extends State<LoginPage> {
                         width: MediaQuery.of(context).size.width * 0.35,
 
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(const UserLoginScreen());
+                          },
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -55,7 +61,9 @@ class _LoginPageState extends State<LoginPage> {
                         width: MediaQuery.of(context).size.width * 0.35,
 
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(const AdminLoginScreen());
+                          },
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../signIn/login.dart';
+import 'package:hawaii/common/signIn/adminuser_signin.dart';
 
 class SignUpItemWidget extends StatelessWidget {
   const SignUpItemWidget({
@@ -97,7 +96,7 @@ class SignUpItemWidget extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => LoginScreen(),
+                  builder: (context) => LoginPage(),
                 ),
               );
             },
