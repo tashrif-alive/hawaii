@@ -35,7 +35,7 @@ class _AdminLoginFormState extends State<AdminLoginForm> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const NavigationMenu(),
+            builder: (context) => const AdminDashboard(),
           ),
         );
         print('Document does not exist on the database');

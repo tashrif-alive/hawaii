@@ -7,7 +7,7 @@ import 'package:hawaii/firebase_options.dart';
 import 'package:hawaii/routes/user_routes.dart';
 import 'package:hawaii/screens/admin/admin_dashboard.dart';
 import 'package:hawaii/screens/splash_screen/splash_screen.dart';
-import 'package:hawaii/widgets/navigation_bar/admin_appbar.dart';
+import 'package:hawaii/widgets/navigation_bar/admin_navigation_menu.dart';
 
 import 'data/repositories/admin_repo/admin_repo.dart';
 

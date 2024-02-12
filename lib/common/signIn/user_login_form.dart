@@ -7,23 +7,23 @@ import '../../controllers/singup_controller.dart';
 import '../../screens/admin/admin_dashboard.dart';
 import '../../widgets/navigation_bar/navigation_menu.dart';
 
-class LoginForm extends StatefulWidget {
+class UserLoginForm extends StatefulWidget {
   static final _formKey = GlobalKey<FormState>();
 
   @override
-  State<LoginForm> createState() => _LoginFormState();
+  State<UserLoginForm> createState() => _UserLoginFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _UserLoginFormState extends State<UserLoginForm> {
   void route() {
     User? user = FirebaseAuth.instance.currentUser;
     var kk = FirebaseFirestore.instance
-        .collection('admins')
+        .collection('Users')
         .doc(user!.uid)
         .get()
         .then((DocumentSnapshot documentSnapshot) {
       if (documentSnapshot.exists) {
-        if (documentSnapshot.get('Role') == "admin") {
+        if (documentSnapshot.get('Role') == "user") {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -45,9 +45,8 @@ class _LoginFormState extends State<LoginForm> {
 
   void _signIn() async {
     try {
-      if (LoginForm._formKey.currentState!.validate()) {
-        // route();
-         SignInController().login();
+      if (UserLoginForm._formKey.currentState!.validate()) {
+        SignInController().login();
       }
     } catch (e) {
       print("Sign-In failed: $e");
@@ -58,7 +57,7 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     final loginController = Get.put(SignInController());
     return Form(
-      key: LoginForm._formKey,
+      key: UserLoginForm._formKey,
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 18.0, horizontal: 10.0),
         child: Column(
@@ -126,7 +125,6 @@ class _LoginFormState extends State<LoginForm> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    print("LOGIN PRESSED2");
                     _signIn();
                   },
                   style: ElevatedButton.styleFrom(
