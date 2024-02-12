@@ -24,7 +24,7 @@ class SignInController extends GetxController {
 
       if (isAdmin.value) {
         // Check if the user is an admin
-        final isAdminUser = await AdminRepo.instance.isAdmin(emailText,);
+        final isAdminUser = await AdminRepo.instance.isAdmin(emailText,passwordText);
         print("user got admin repo");
         if (isAdminUser) {
           // Handle login as admin

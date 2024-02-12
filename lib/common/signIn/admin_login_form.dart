@@ -32,12 +32,6 @@ class _AdminLoginFormState extends State<AdminLoginForm> {
           );
         }
       } else {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const AdminDashboard(),
-          ),
-        );
         print('Document does not exist on the database');
       }
     });
@@ -46,7 +40,8 @@ class _AdminLoginFormState extends State<AdminLoginForm> {
   void _signIn() async {
     try {
       if (AdminLoginForm._formKey.currentState!.validate()) {
-        SignInController().login();
+        // SignInController().login();
+        route();
       }
     } catch (e) {
       print("Sign-In failed: $e");

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hawaii/controllers/signin_controller.dart';
 import '../../controllers/singup_controller.dart';
+import '../../data/repositories/auth_repo/auth_repo.dart';
 import '../../screens/admin/admin_dashboard.dart';
 import '../../widgets/navigation_bar/navigation_menu.dart';
 
@@ -15,6 +16,7 @@ class UserLoginForm extends StatefulWidget {
 }
 
 class _UserLoginFormState extends State<UserLoginForm> {
+
   void route() {
     User? user = FirebaseAuth.instance.currentUser;
     var kk = FirebaseFirestore.instance
@@ -27,17 +29,11 @@ class _UserLoginFormState extends State<UserLoginForm> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => const AdminDashboard(),
+              builder: (context) => const NavigationMenu(),
             ),
           );
         }
       } else {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const NavigationMenu(),
-          ),
-        );
         print('Document does not exist on the database');
       }
     });
@@ -46,7 +42,9 @@ class _UserLoginFormState extends State<UserLoginForm> {
   void _signIn() async {
     try {
       if (UserLoginForm._formKey.currentState!.validate()) {
-        SignInController().login();
+         // AuthRepo().loginEmailPass;
+         route();
+
       }
     } catch (e) {
       print("Sign-In failed: $e");

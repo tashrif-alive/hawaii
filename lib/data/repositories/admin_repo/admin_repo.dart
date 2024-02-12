@@ -54,7 +54,7 @@ class AdminRepo extends GetxController {
   }
 
   // Check if the user is an admin
-  Future<bool> isAdmin(String email) async {
+  Future<bool> isAdmin(String email, String passwordText) async {
     try {
       print(email);
       final adminSnapshot = await _db.collection('admins').where('Email', isEqualTo: "test@gmail.com").get(); // Updated collection name to "admins"
